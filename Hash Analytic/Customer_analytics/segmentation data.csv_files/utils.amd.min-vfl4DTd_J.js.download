@@ -1,0 +1,2 @@
+define(["require","exports","tslib","lodash"],(function(i,e,r,s){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.isBehaviorClass=e.isBehavior=void 0,s=r.__importStar(s),e.isBehavior=function(i){return!s.isFunction(i)&&"behavior"===i.__type__},e.isBehaviorClass=function(i){return s.isFunction(i)&&"behavior-class"===i.__type__}}));
+//# sourceMappingURL=utils.amd.min.js-vflF12Y4S.map

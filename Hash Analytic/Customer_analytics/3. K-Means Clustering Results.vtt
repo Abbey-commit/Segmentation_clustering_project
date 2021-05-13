@@ -1,0 +1,298 @@
+WEBVTT
+
+00:01.010 --> 00:02.280
+Welcome back.
+
+00:02.330 --> 00:05.180
+So we have segmented our data successfully.
+
+00:05.180 --> 00:10.950
+Now let's analyze the results we'll start by adding the clustering results to our data.
+
+00:10.970 --> 00:18.560
+First we'll make a copy of our segmentation data frame and name it D F segmentation k means let's add
+
+00:18.560 --> 00:27.080
+a new column called segment k means it will contain the predicted clusters for each observation in our
+
+00:27.080 --> 00:28.150
+dataset.
+
+00:28.220 --> 00:33.000
+In case you're wondering the predictions can be extracted from the labels attribute.
+
+00:33.290 --> 00:38.110
+With this information we will endeavor to comprehend what the different clusters mean.
+
+00:38.180 --> 00:44.060
+In other words what the characteristics of the people in each of the clusters are to gain some insight
+
+00:44.250 --> 00:49.470
+will calculate the mean values of each features by clusters and to help us with that.
+
+00:49.550 --> 00:57.680
+We will use the group by method let's type data frames segmentation K Means grouped by brackets as a
+
+00:57.680 --> 01:01.400
+first argument we must indicate the column which we want to group by.
+
+01:01.400 --> 01:12.330
+So segment K Means now let's calculate the mean super here's the result.
+
+01:12.520 --> 01:17.370
+Now we've obtained the means for the clusters found by our K Means algorithm.
+
+01:17.470 --> 01:20.920
+It's time to interpret them logically.
+
+01:20.950 --> 01:27.890
+We start with the first segment it is composed of men and women almost equally with an average age of
+
+01:27.890 --> 01:29.600
+56.
+
+01:29.660 --> 01:38.640
+Comparing this mean age with the other clusters we realize that this is the oldest segment more than
+
+01:38.640 --> 01:44.850
+two thirds are in relationships and they also have the highest level of education as well as the highest
+
+01:44.850 --> 01:45.770
+income.
+
+01:45.930 --> 01:52.590
+We could call this segment well-off people note that it is crucial to name our segments.
+
+01:52.590 --> 01:58.350
+This allows us to understand them and to be able to talk about them and make different assumptions even
+
+01:58.350 --> 01:59.180
+better.
+
+01:59.190 --> 02:04.840
+Other people can easily comprehend what the numbers mean without any modelling background.
+
+02:04.900 --> 02:07.810
+OK what about the second segment.
+
+02:09.120 --> 02:13.050
+Two thirds are male and almost all are single.
+
+02:13.290 --> 02:16.170
+Their average age is 36 years.
+
+02:16.170 --> 02:22.620
+Their education level is low on average compared to other segments in terms of salary and jobs.
+
+02:22.620 --> 02:28.050
+This segment has the lowest values under 100000 for annual salary.
+
+02:28.170 --> 02:32.010
+Also they live almost exclusively in small cities.
+
+02:32.430 --> 02:38.340
+So these are people in their thirties with a relatively low income living in small cities.
+
+02:38.340 --> 02:42.670
+It seems that this is the segment of people with fewer opportunities.
+
+02:42.690 --> 02:48.870
+Let's label it like that OK let's carry on with the third segment.
+
+02:48.900 --> 02:52.740
+These are people in relationships with an average age of 29.
+
+02:52.740 --> 02:54.450
+This is the youngest segment.
+
+02:54.570 --> 02:59.840
+They have a medium level of education average income and middle management jobs.
+
+02:59.940 --> 03:04.740
+They seem equally distributed between small mid-sized and big cities.
+
+03:04.740 --> 03:08.600
+So they seem average in just about every parameter.
+
+03:08.820 --> 03:13.510
+We can label the segment average or standard.
+
+03:13.560 --> 03:16.490
+Finally we come to the fourth segment.
+
+03:16.650 --> 03:19.600
+It is comprised almost entirely of men.
+
+03:19.710 --> 03:23.060
+Less than 20 percent of whom are in relationships.
+
+03:23.250 --> 03:29.580
+Looking at the numbers we observe relatively low values for education paired with high values for income
+
+03:29.580 --> 03:31.680
+and occupation.
+
+03:31.680 --> 03:35.850
+The majority of this segment lives in big or middle sized cities.
+
+03:35.850 --> 03:39.060
+It appears people in this segment are career focused.
+
+03:39.060 --> 03:41.640
+Let's label the segment accordingly.
+
+03:41.760 --> 03:42.660
+Great job.
+
+03:42.660 --> 03:45.330
+We have successfully named the clusters.
+
+03:45.330 --> 03:48.290
+A cluster may be named in many different ways.
+
+03:48.300 --> 03:54.640
+What is important is to use a clear descriptive phrase that we can use as a reference.
+
+03:54.670 --> 03:55.060
+All right.
+
+03:55.510 --> 04:01.500
+Let's see the size of the clusters and their proportions compared to the entire dataset.
+
+04:01.540 --> 04:04.380
+Let's make a new column in a data frame and name it.
+
+04:04.480 --> 04:13.190
+Number of observations we'll use the group by method again only this time we'll use count instead of
+
+04:13.190 --> 04:13.640
+mean
+
+04:22.250 --> 04:25.080
+let's also calculate the proportions of these segments.
+
+04:25.080 --> 04:30.990
+After all we'd like to know how much of the whole population each cluster represents will store this
+
+04:30.990 --> 04:35.480
+information in a column called proportion of observations.
+
+04:35.730 --> 04:42.620
+It's equal to the number of observations column divided by the sum of all observations done running
+
+04:42.620 --> 04:43.430
+the code.
+
+04:43.460 --> 04:46.590
+We get a data frame with the relevant information.
+
+04:46.970 --> 04:51.350
+Now that we've already named our segments we can add this information to our table.
+
+04:51.350 --> 04:57.310
+Let's rename the segments segment zero is now well off.
+
+04:57.450 --> 05:00.000
+One is fewer opportunities.
+
+05:00.180 --> 05:06.090
+Two is the standard segment and the last group is career focused OK.
+
+05:06.300 --> 05:07.320
+Let's run the code
+
+05:15.770 --> 05:22.700
+we can see that there are 263 individuals or 13 percent of the entire data in the well off segment.
+
+05:22.700 --> 05:30.020
+So this is the smallest segment the largest segment is the third one standard comprised of 35 percent
+
+05:30.170 --> 05:31.730
+of all individuals.
+
+05:32.000 --> 05:40.480
+In between we find being career focused and fewer opportunities containing 570 and 462 persons respectively.
+
+05:40.550 --> 05:41.740
+Amazing.
+
+05:42.110 --> 05:46.800
+As a last step we'd like to visualize our segmented data.
+
+05:46.820 --> 05:52.300
+Please note that we'll be plotting the raw data rather than the standardized data.
+
+05:52.310 --> 05:59.300
+The only difference would be that this time we'll have the segments we use our original data frame segmentation
+
+05:59.300 --> 06:05.490
+K Means and plot each individual point and its corresponding cluster in order to do that.
+
+06:05.510 --> 06:09.050
+Let's first add the segment names to this data frame as well.
+
+06:09.110 --> 06:16.430
+So far we only have the K Means labels attribute which has numbers from 0 to 3 for each of the 4 corresponding
+
+06:16.430 --> 06:19.720
+clusters will map these to the segment names.
+
+06:19.880 --> 06:26.900
+To achieve this we can employ the map method and use the mapping convention we established earlier.
+
+06:26.930 --> 06:34.280
+All right let's add a new column called labels then we take our segment K Means column and map it to
+
+06:34.280 --> 06:37.660
+the strings for the segments names.
+
+06:37.760 --> 06:42.160
+It's the same one we used in our previous table now.
+
+06:42.160 --> 06:44.530
+Finally we can create our plot
+
+06:56.920 --> 07:05.040
+we'll create a scatter plot of income and age and we'll use C born again moreover we can actually use
+
+07:05.040 --> 07:13.470
+the segments as colors so hue is D F segmentation K Means labels will use the same color palette.
+
+07:13.580 --> 07:18.910
+As for hierarchical clustering green red cyan and magenta.
+
+07:19.220 --> 07:22.930
+Finally it's always important to set a title for our graph.
+
+07:23.270 --> 07:27.660
+And let's take a look at our plot okay.
+
+07:27.920 --> 07:36.140
+What do we observe we can see the green segment well-off is clearly separated as it is highest in both
+
+07:36.230 --> 07:38.120
+age and income.
+
+07:38.120 --> 07:44.030
+Unfortunately the other three are grouped together so it's harder to get more insight just by looking
+
+07:44.030 --> 07:51.590
+at the plot we can conclude that K Means did a decent job at separating our data into clusters.
+
+07:51.590 --> 07:54.720
+However the result is far from perfect.
+
+07:54.800 --> 07:59.000
+So we're interested to see how we can get even more out of it.
+
+07:59.030 --> 08:06.470
+So in the next section we'll combine k means with principal component analysis and try to get a better
+
+08:06.470 --> 08:07.600
+result.
+
+08:07.640 --> 08:08.830
+See you next time.
+
+08:08.870 --> 08:10.280
+And thanks for watching.

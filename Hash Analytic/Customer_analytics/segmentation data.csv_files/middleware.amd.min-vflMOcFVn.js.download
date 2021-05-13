@@ -1,0 +1,2 @@
+define(["require","exports"],(function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.ActionListenerMiddleware=void 0,t.ActionListenerMiddleware=function(){var e={},t=function(t){var n=t.dispatch,r=t.getState;return function(t){return function(i){return i&&i.type&&e[i.type]&&e[i.type].forEach((function(e){return e(i,n,r)})),t(i)}}};return t.subscribe=function(t,n){return e[t]=(e[t]||[]).concat([n]),function(){e[t]&&(e[t]=e[t].filter((function(e){return e!==n})))}},t}}));
+//# sourceMappingURL=middleware.amd.min.js-vflfEA5lo.map

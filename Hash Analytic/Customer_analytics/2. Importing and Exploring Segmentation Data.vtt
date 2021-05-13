@@ -1,0 +1,379 @@
+WEBVTT
+
+00:00.660 --> 00:01.920
+Welcome back.
+
+00:01.980 --> 00:03.910
+It's time to start coding.
+
+00:04.080 --> 00:11.840
+First we'll import the three Python libraries we will need for now known by pandas and Saibai.
+
+00:11.910 --> 00:15.710
+Throughout the course will gradually import the rest when they're needed.
+
+00:15.720 --> 00:24.220
+We can import none pi as MP and pandas as Piti as we already know these two are quite conventional.
+
+00:24.740 --> 00:28.920
+Let's finish off with Sai pi.
+
+00:28.950 --> 00:31.250
+Now it's time to load our data.
+
+00:31.260 --> 00:36.610
+We have all our data in the dot CSP file called segmentation data.
+
+00:36.630 --> 00:43.770
+Now we will loaded in a new variable called DFS segmentation using the panda's method read see S.V.
+
+00:45.810 --> 00:51.810
+by the way we know that the first column of the dataset is the individual I.D. So let's make it an index
+
+00:51.810 --> 00:52.760
+column.
+
+00:52.800 --> 00:58.130
+We can do that by setting the index underscore call argument to 0.
+
+00:58.270 --> 01:05.350
+OK let's run the code the data from the CSB file will be loaded into a panda's data frame.
+
+01:05.470 --> 01:11.410
+As you probably know that's an object that is very convenient for storing data for all kinds of manipulations
+
+01:11.470 --> 01:13.210
+and analysis.
+
+01:13.210 --> 01:14.020
+All right.
+
+01:14.230 --> 01:17.530
+We already know what's contained in the segmentation data.
+
+01:17.620 --> 01:26.540
+However we can validate that by using the head method which will display rows of the data frame and
+
+01:26.540 --> 01:29.550
+here it is awesome.
+
+01:29.570 --> 01:37.790
+Now let's get a summary of our data we can apply the described method to DFS segmentation to obtain
+
+01:37.790 --> 01:45.600
+descriptive statistics about the columns of a data frame here's the result.
+
+01:45.720 --> 01:47.650
+First we get the count.
+
+01:47.790 --> 01:51.060
+This is the number of observations for each variable.
+
+01:51.060 --> 01:55.140
+We can see that there are two thousand observations in total.
+
+01:55.200 --> 02:00.300
+Then we get the means for the continuous variables age and income.
+
+02:00.300 --> 02:04.220
+We see the average age and the average income respectively.
+
+02:04.320 --> 02:09.390
+The average age is about thirty six years while the average income about one hundred twenty one thousand
+
+02:09.390 --> 02:11.930
+dollars.
+
+02:11.980 --> 02:15.140
+And what about the means of categorical values.
+
+02:15.160 --> 02:21.970
+Unfortunately they aren't very meaningful for categorical variables that have only two values 0 and
+
+02:21.970 --> 02:26.000
+1 the mean shows nothing more than the proportion of ones.
+
+02:26.200 --> 02:28.440
+Let's take biological sex for instance.
+
+02:28.540 --> 02:32.050
+Zero means male biological sex and one means female.
+
+02:32.050 --> 02:36.970
+So the proportion of women in the dataset is forty five point seven percent.
+
+02:37.000 --> 02:42.760
+Unfortunately we cannot say anything about education occupation and settlement size as the possible
+
+02:42.760 --> 02:46.270
+values there are not only zero and 1.
+
+02:46.390 --> 02:47.590
+All right.
+
+02:47.590 --> 02:52.780
+Another piece of information we've got on the table are the minimum and maximum values as well as the
+
+02:52.780 --> 02:59.390
+25th fiftieth and the seventy fifth percentiles these could sometimes be useful if you want to get an
+
+02:59.390 --> 03:03.060
+idea about the distribution of a numerical variable.
+
+03:03.290 --> 03:04.190
+Awesome.
+
+03:04.190 --> 03:06.610
+Let's move on with our analysis.
+
+03:06.710 --> 03:11.810
+A good way to get an initial understanding of the relationships between the different variables is to
+
+03:11.810 --> 03:18.080
+explore how they correlate depending on the types of data you can employ different techniques to quantify
+
+03:18.110 --> 03:19.250
+this correlation.
+
+03:19.250 --> 03:25.080
+For our initial data exploration purposes a simple Pearson correlation will suffice.
+
+03:25.250 --> 03:32.310
+Pearson is the default approach for most correlation methods in Python we calculate the correlations
+
+03:32.310 --> 03:40.000
+between our variables using the core method applied to the DNA of segmentation data frame generally
+
+03:40.240 --> 03:44.060
+correlation describes the linear dependency between variables.
+
+03:44.140 --> 03:51.790
+It ranges from negative 1 1 with 1 indicating very strong positive correlation negative 1 strong negative
+
+03:51.820 --> 04:00.510
+culinary correlation of zero between two variables means they are not linearly dependent.
+
+04:00.510 --> 04:03.300
+Now let's look at the values in our matrix.
+
+04:03.300 --> 04:05.130
+What did they tell us.
+
+04:05.130 --> 04:08.730
+The diagonal values showed the correlation of a variable with itself.
+
+04:08.760 --> 04:11.080
+So these values are always 1.
+
+04:11.190 --> 04:17.940
+The Matrix is symmetrical so the entries over and under the diagonal are mirror images of themselves.
+
+04:17.970 --> 04:24.210
+In fact sometimes you can see correlation matrices represented by just the lower part of this table
+
+04:25.220 --> 04:25.940
+okay.
+
+04:26.110 --> 04:28.270
+Let's explore the correlation.
+
+04:28.270 --> 04:35.050
+If we look at positions 3 or 4 or 4 3 we see that there is a strong positive correlation between age
+
+04:35.140 --> 04:40.100
+and education a value of zero point six five makes sense right.
+
+04:40.450 --> 04:43.170
+Older people tend to be more highly educated.
+
+04:43.420 --> 04:45.730
+How about income and occupation.
+
+04:45.730 --> 04:48.520
+There a correlation is zero point six eight.
+
+04:48.520 --> 04:54.880
+In other words if you have a higher salary you are more likely to live in a larger housing.
+
+04:54.880 --> 05:01.690
+The correlation matrix is an extremely useful tool because we see exact correlation values between variables.
+
+05:01.690 --> 05:07.210
+Unfortunately it's hard to get a general overview of the relationships between the features because
+
+05:07.210 --> 05:11.730
+we're simply looking at numbers since we humans are visual creatures.
+
+05:11.800 --> 05:18.730
+We can often use different data visualizations to perceive the information more intuitively a very convenient
+
+05:18.730 --> 05:21.850
+tool for that is a heat map.
+
+05:21.910 --> 05:27.350
+You may remember that we imported the number pi pandas and Saibai library at the beginning.
+
+05:27.460 --> 05:34.120
+Technically you can import libraries anywhere in Python but that's not a good programming practice.
+
+05:34.120 --> 05:39.670
+Indeed our code will look really messy if we have import scattered around everywhere.
+
+05:39.760 --> 05:44.680
+It would be a lot cleaner if we have all the relevant libraries at the top.
+
+05:44.680 --> 05:50.800
+So let's do it like real programmers and scroll back to the beginning for visualizations.
+
+05:50.800 --> 05:53.910
+We will need the PI plot module from Matt.
+
+05:53.920 --> 05:55.300
+Plot lib.
+
+05:55.300 --> 06:03.970
+So lets imported as Pulte apart from map plot lib will use another package called seaborne to help us
+
+06:03.970 --> 06:05.720
+out with visualizations.
+
+06:05.920 --> 06:14.470
+So let's import seaborne as S.A. finally to override the default matte plot lib look with the seaborne
+
+06:14.470 --> 06:23.910
+one we write S.A. dot set so for all graphs that are written in matte plot lib you can think of seaborne
+
+06:24.090 --> 06:31.050
+as a nice skin for matte plot lib since seaborne is written on top of matte plot lib they are seamlessly
+
+06:31.050 --> 06:38.100
+integrated and you don't have to worry about compatibility OK we have all the libraries we'll need for
+
+06:38.100 --> 06:47.630
+visualizations First we create a matte plot lib figure let's set the size of the plot to twelve inches
+
+06:47.630 --> 06:57.090
+wide by nine inches high using fixed size then let S be an S an S heat map for the correlation matrix
+
+06:59.130 --> 07:07.620
+will retain the correlation coefficients with an art equals true let's also choose the colors for our
+
+07:07.620 --> 07:08.670
+heat map.
+
+07:08.760 --> 07:14.100
+I prefer having red for a lower negative values and blue for greater positive values.
+
+07:14.100 --> 07:18.380
+The color scheme we'll use to achieve that is called Our D.B. U.
+
+07:18.390 --> 07:21.650
+So we have to set the C map argument to already be you.
+
+07:21.720 --> 07:24.730
+Note that there are many other options for the colors.
+
+07:24.870 --> 07:28.970
+Nice examples are vividness or autumn.
+
+07:29.220 --> 07:34.830
+You can check out the documentation online and choose a color scheme you prefer okay.
+
+07:34.940 --> 07:36.400
+What else do we need.
+
+07:36.410 --> 07:40.540
+Let's add some boundaries to the heat map using v men and V Max.
+
+07:40.700 --> 07:44.180
+We'll set those to minus 1 and 1 respectively.
+
+07:44.180 --> 07:48.510
+You may remember this was the range for the Pearson correlation between two variables.
+
+07:48.620 --> 07:54.230
+Of course you can leave those two parameters out and Seabourn will infer them based on the values it
+
+07:54.230 --> 07:54.980
+has received
+
+07:58.050 --> 08:04.500
+what is left is to label our graph what we need is labels for the Y and the X axis
+
+08:08.410 --> 08:14.020
+will set the x and y take labels and rotate the X months by 90 degrees to be able to read them
+
+08:18.490 --> 08:19.170
+finally.
+
+08:19.180 --> 08:22.140
+It's always important to set a title for our graph.
+
+08:22.210 --> 08:26.440
+We'll call it correlation heat map.
+
+08:26.480 --> 08:27.580
+Let's see the final result
+
+08:31.530 --> 08:33.020
+fantastic.
+
+08:33.030 --> 08:38.730
+So now the bluer the square between two variables the higher the positive correlation is between them
+
+08:39.060 --> 08:45.780
+and on the opposite side the redder the square the higher the negative correlation is with this heat
+
+08:45.780 --> 08:46.260
+map.
+
+08:46.260 --> 08:52.710
+We can actually see the strong positive correlation between age and education or between occupation
+
+08:52.710 --> 08:53.610
+and income.
+
+08:53.610 --> 08:59.280
+We can also observe some other positive color narratives like the one between occupation and settlement
+
+08:59.280 --> 09:00.350
+size.
+
+09:00.390 --> 09:05.970
+These are the kinds of relationships we'll be looking for to use for segmentation purposes.
+
+09:06.060 --> 09:11.100
+We leave it up to you to explore the heat map in detail and remember to try out the different color
+
+09:11.100 --> 09:12.760
+options as well.
+
+09:12.870 --> 09:18.240
+Great exploring the correlations between the features of the consumers is the first step to identifying
+
+09:18.240 --> 09:25.970
+similar consumers and putting them together in groups which is the essence of segmentation finally.
+
+09:26.070 --> 09:36.690
+Let's visualize our data using a scatter plot We'll scatter the points with P L T dot scatter we'll
+
+09:36.690 --> 09:45.190
+plot age against income which are on position 2 and 4 in our data frame by using the I like method let's
+
+09:45.190 --> 09:52.910
+label the x axis age and the y axis income.
+
+09:52.960 --> 10:00.580
+Finally we name our plot visualization of raw data.
+
+10:00.610 --> 10:04.040
+Good job.
+
+10:04.090 --> 10:09.730
+Now we see all our 2000 observations along the two axes in our next lesson.
+
+10:09.730 --> 10:12.030
+We'll standardize our data.
+
+10:12.070 --> 10:12.910
+Thanks for watching.

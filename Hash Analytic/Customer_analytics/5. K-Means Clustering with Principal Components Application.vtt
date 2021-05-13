@@ -1,0 +1,79 @@
+WEBVTT
+
+00:00.940 --> 00:06.970
+In this lecture we'll segment our data using k means clustering using principal components as features
+
+00:07.550 --> 00:09.580
+lets reuse the code we wrote before
+
+00:16.420 --> 00:20.890
+only this time as an argument we'll use these scores of the PCI.
+
+00:20.890 --> 00:24.610
+Note that the component scores are standardized by definition.
+
+00:24.640 --> 00:27.560
+That's why their values are so arbitrary.
+
+00:27.580 --> 00:34.440
+This is actually great news for us as there is no need to standardize them to make our code more semantic.
+
+00:34.450 --> 00:42.730
+Let's start by adding a PCI suffix to the K Means variable at all necessary places.
+
+00:42.740 --> 00:45.060
+Simple as that.
+
+00:45.080 --> 00:50.320
+Now let's visualize the within clusters sum of squares by number of clusters.
+
+00:50.360 --> 00:52.250
+We could employ the same code as before
+
+00:56.440 --> 01:02.270
+we'll just change the title of the graph to avoid any confusion.
+
+01:02.380 --> 01:03.940
+Great.
+
+01:03.940 --> 01:08.340
+Now it's time to pick the number of clusters through the Elbow Method.
+
+01:08.380 --> 01:11.310
+The result is very similar to what we got last time.
+
+01:11.320 --> 01:16.620
+However if you examine the two plots more closely you will see some differences.
+
+01:16.630 --> 01:19.630
+In any case the decision we make doesn't change.
+
+01:19.630 --> 01:24.430
+It still looks like the most prominent kink comes at the fore cluster mark once more.
+
+01:24.430 --> 01:26.320
+Well the jury is out.
+
+01:26.320 --> 01:27.970
+We'll be working with 4 clusters
+
+01:31.220 --> 01:35.360
+let's create a k means P.S. a model with 4 clusters.
+
+01:35.540 --> 01:38.770
+We'll use the same initialize her in random state as before.
+
+01:39.910 --> 01:44.250
+Next will fit the model with the principal component scores.
+
+01:44.410 --> 01:45.160
+Great.
+
+01:45.220 --> 01:52.810
+We've obtained the K Means PCI clustering solution with 4 clusters all right in the next video we'll
+
+01:52.810 --> 01:56.460
+exploit the results of our segmentation model in more detail.
+
+01:56.470 --> 01:57.480
+Thanks for watching.

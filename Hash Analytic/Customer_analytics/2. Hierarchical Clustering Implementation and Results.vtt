@@ -1,0 +1,304 @@
+WEBVTT
+
+00:00.420 --> 00:01.470
+All right.
+
+00:01.470 --> 00:07.410
+As we discussed the first model is higher hierarchical called clustering hierarchical clustering is
+
+00:07.410 --> 00:10.120
+one of the most common clustering methods here.
+
+00:10.120 --> 00:14.820
+We'll discuss it in the context of segmentation and customer analytics.
+
+00:14.820 --> 00:19.040
+But how do we actually perform hierarchical clustering in Python.
+
+00:19.050 --> 00:25.350
+Lucky for us Python already had a readily available module let's scroll back to the top one more time
+
+00:27.030 --> 00:31.530
+and now from Sai pi dot cluster dot hierarchy.
+
+00:31.620 --> 00:40.990
+Let's import Dan diagram and linkage a D'Andrea Gram is a tree like hierarchical representation of points
+
+00:41.620 --> 00:47.290
+it provides a nice visual and it's the main tool that is used to assess a hierarchical clustering solution
+
+00:47.980 --> 00:48.730
+linkage.
+
+00:48.730 --> 00:53.080
+On the other hand refers to the specific clustering methods we employ.
+
+00:53.080 --> 00:53.980
+Nice.
+
+00:54.010 --> 00:56.080
+Now we can come back to our code.
+
+00:56.080 --> 01:03.430
+Let's create a new variable called hierarchical clustering equal to linkage brackets are standardized
+
+01:03.430 --> 01:07.250
+data as a second argument.
+
+01:07.250 --> 01:11.110
+We can set ward as the preferred method of linkage.
+
+01:11.120 --> 01:16.760
+This function performs hierarchical clustering on our data and returns the clustering results as the
+
+01:16.760 --> 01:19.250
+so-called linkage matrix.
+
+01:19.280 --> 01:22.540
+So how do we see the linkage matrix.
+
+01:22.550 --> 01:29.390
+Well we'll plot it using the great visualization tool we mentioned the Daniel gram we already imported
+
+01:29.390 --> 01:35.150
+the relevant method so let's implement it first we create a matte plot lib figure
+
+01:37.930 --> 01:46.810
+then let's set its title to hierarchical clustering danger gram let's label the x axis observations
+
+01:48.740 --> 01:50.360
+and the y axis distance
+
+01:53.560 --> 02:00.130
+finally we call the danger our method with our linked clustering solution contained in the hierarchical
+
+02:00.130 --> 02:08.650
+clustering as a parameter let's also set show leaf count to false No Labels 2 TRUE AND COLOR threshold
+
+02:08.740 --> 02:11.020
+to 0.
+
+02:11.080 --> 02:12.180
+Let's see the final result
+
+02:15.620 --> 02:16.940
+looks nice I guess.
+
+02:16.940 --> 02:18.570
+But what does it mean.
+
+02:18.650 --> 02:21.970
+Let's go step by step at the bottom of the plot.
+
+02:21.980 --> 02:23.800
+We have our observations.
+
+02:23.840 --> 02:27.050
+These are two thousand individual points.
+
+02:27.080 --> 02:32.510
+Now the goal of our clustering algorithm is to group them together based on their distance the distance
+
+02:32.510 --> 02:39.530
+as you can see is the y axis therefore distances between points are represented by the vertical lines
+
+02:40.950 --> 02:43.410
+so the smaller the distance between points.
+
+02:43.500 --> 02:46.620
+The further down in the tree they'll be grouped together.
+
+02:46.620 --> 02:50.540
+This also shows that they are more similar to one another.
+
+02:50.820 --> 02:51.610
+Great.
+
+02:51.620 --> 02:58.080
+A joint between two observations or two clusters is represented by a horizontal line linking two vertical
+
+02:58.080 --> 03:02.680
+lines because we have all 2000 observations plotted our danger.
+
+03:02.690 --> 03:04.450
+Graham looks a bit crowded.
+
+03:04.650 --> 03:07.910
+Let's truncated a bit so it looks less busy.
+
+03:07.920 --> 03:13.110
+We'll set truncate mode to level and set the level p at 5.
+
+03:13.110 --> 03:15.510
+This means will only see the last 5 merge.
+
+03:15.540 --> 03:17.160
+Cluster levels.
+
+03:17.160 --> 03:18.890
+Now this looks better.
+
+03:18.900 --> 03:21.360
+Hey and speaking of clusters.
+
+03:21.360 --> 03:26.720
+Now we come to the most important part of clustering finding the clusters.
+
+03:26.730 --> 03:27.900
+How do we do that.
+
+03:28.020 --> 03:32.220
+We need to find a horizontal line in the den diagram on which to cut.
+
+03:32.220 --> 03:37.230
+This means that under this line every vertical line will signal the beginning of a cluster
+
+03:39.910 --> 03:45.100
+all the leaves which are connected to the line until the cut will belong to a separate cluster
+
+03:48.280 --> 03:51.760
+obviously we can cut the danger Graham in many different places.
+
+03:51.760 --> 03:53.380
+So how do we choose.
+
+03:53.380 --> 03:57.150
+Well there is a rule of thumb which can be quite useful.
+
+03:57.280 --> 04:03.570
+We find the longest vertical line which isn't intercepted by a horizontal line from the danger gram.
+
+04:03.610 --> 04:05.480
+This is where we should make the cut.
+
+04:06.340 --> 04:11.200
+Let's start from the top with the first two lines that are contestants for the cut.
+
+04:11.590 --> 04:18.550
+The one on the right is not intercepted by any horizontal lines so it is a possible clustering solution.
+
+04:18.670 --> 04:23.190
+If we choose this one we could cut here and end up with two clusters.
+
+04:23.320 --> 04:24.670
+This one and that one
+
+04:27.770 --> 04:33.870
+regarding the line on the left we observe that it is in fact intercepted by a horizontal line.
+
+04:33.890 --> 04:37.370
+Therefore it doesn't comply with our rule of thumb.
+
+04:37.370 --> 04:44.930
+We continue with this technique down the Dan program by far the longest vertical line is this one here.
+
+04:44.930 --> 04:46.730
+Wait hold on.
+
+04:46.730 --> 04:49.960
+It's intercepted by several different horizontal lines.
+
+04:50.030 --> 04:53.180
+So no luck here.
+
+04:53.210 --> 04:56.740
+The same goes for the leftmost line and the rightmost line.
+
+04:57.420 --> 04:59.840
+Okay let's try this one.
+
+04:59.930 --> 05:00.730
+Yes.
+
+05:00.800 --> 05:03.300
+No horizontal lines.
+
+05:03.350 --> 05:07.370
+This is another suitable clustering solution at this point.
+
+05:07.370 --> 05:13.670
+We compared this line with the one we have previously found and determine that it is indeed longer.
+
+05:13.670 --> 05:17.380
+Therefore it's a superior clustering solution.
+
+05:17.720 --> 05:23.150
+Comparing this vertical line with all other lines in the graph we establish that it's actually the best
+
+05:23.150 --> 05:24.030
+place to cut.
+
+05:24.350 --> 05:28.720
+So we have found our vertical line and this is where we make the cut.
+
+05:28.730 --> 05:31.580
+Now we can see that we've got four clusters.
+
+05:31.580 --> 05:32.180
+Here they are.
+
+05:33.080 --> 05:33.920
+Excellent.
+
+05:33.920 --> 05:40.970
+But is there a better way to differentiate between the clusters in our danger Graham for instance plot
+
+05:40.970 --> 05:42.900
+them in a different color.
+
+05:42.920 --> 05:48.480
+Yes there is in fact the linkage method has already done that for us.
+
+05:48.590 --> 05:55.080
+It returned the clustering results in the linkage matrix and in fact it found four clusters as well.
+
+05:55.340 --> 05:59.280
+They are contained in the hierarchical clustering variable.
+
+05:59.330 --> 06:06.020
+In fact we made the extra effort to hide that from you so we can explore how a dental ground works.
+
+06:06.020 --> 06:11.180
+If we remove the color threshold parameter we'll be able to see the clustering solution.
+
+06:11.210 --> 06:15.480
+Let's try it out and we have our four clusters.
+
+06:15.480 --> 06:17.520
+Each has his own color.
+
+06:17.520 --> 06:22.340
+That's also how we usually go about a hierarchical clustering solution.
+
+06:22.350 --> 06:24.810
+Now we only have 2000 observations.
+
+06:24.930 --> 06:31.290
+However with bigger data sets a hierarchical clustering solution may take minutes or even hours to compute
+
+06:31.800 --> 06:33.630
+precisely because it is slow.
+
+06:33.720 --> 06:39.640
+It isn't very practical but it has one major advantage over other methods.
+
+06:39.690 --> 06:42.870
+It finds the number of clusters in the data.
+
+06:42.870 --> 06:48.910
+Usually in practice we employ flat clustering techniques rather than hierarchical.
+
+06:48.910 --> 06:55.440
+There are WAY faster but if we have no prior knowledge about the number of clusters we can start by
+
+06:55.440 --> 06:58.770
+performing hierarchical clustering to determine them.
+
+06:58.770 --> 07:05.910
+Then we can employ flat clustering for the segmentation itself in the next section we'll explore that
+
+07:05.970 --> 07:07.280
+in detail.
+
+07:07.320 --> 07:08.150
+Thanks for watching.

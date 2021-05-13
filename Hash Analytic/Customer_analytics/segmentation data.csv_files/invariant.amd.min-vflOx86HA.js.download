@@ -1,0 +1,2 @@
+define(["require","exports","tslib","tslib","lodash"],(function(r,n,t,i,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.invariant=n.InvariantError=void 0,e=t.__importStar(e);var a=(function(r){function n(n){var t=r.call(this,n)||this;return t.name="Invariant Error",t}return i.__extends(n,r),n})(Error);n.InvariantError=a,n.invariant=function(r,n){if(!r){var t=e.isFunction(n)?n():n;throw new a(t)}}}));
+//# sourceMappingURL=invariant.amd.min.js-vflL0TSZO.map
